@@ -4,6 +4,7 @@ import { SlCalender } from "react-icons/sl";
 import { DiApple } from "react-icons/di";
 import { DiCodeigniter } from "react-icons/di";
 import { FaChartBar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const AdminSideBar = ({ collapsed }) => {
     return (
@@ -25,20 +26,13 @@ const AdminSideBar = ({ collapsed }) => {
                         },
                     }}
                     >
-                        <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>
-                            User
-                        </div>
-                        <SubMenu label="Charts" icon={<FaChartBar />}>
-                            <MenuItem> Pie charts </MenuItem>
-                            <MenuItem> Line charts</MenuItem>
-                            <MenuItem> Bar charts</MenuItem>
+                        <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>User</div>
+                        <SubMenu label="Manage users" icon={<FaChartBar />}>
+                            <MenuItem component={<Link to="/admins/manage-users" />}>Manage users</MenuItem>
                         </SubMenu>
-                        <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>
-                            Admin
-                        </div>
-                        <MenuItem icon={<SlCalender />}>  Calendar</MenuItem>
-                        <MenuItem icon={<DiApple />}>  E-commerce</MenuItem>
-                        <MenuItem icon={<DiCodeigniter />}>  Examples</MenuItem>
+
+                        <div style={{ padding: '0 24px', marginBottom: '8px', marginTop: '32px' }}>Admin</div>
+                        <MenuItem icon={<SlCalender />} component={<Link to="/admins" />}>DashBoard</MenuItem>
                     </Menu>
                 </Sidebar>
             </div>
