@@ -9,26 +9,30 @@ import ManageUser from './components/Admin/Content/ManageUser';
 import DashBoard from './components/Admin/Content/DashBoard';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import store from './components/Redux/store'
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path='users' element={<User />}></Route>
-        </Route>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />}>
+            <Route index element={<HomePage />}></Route>
+            <Route path='users' element={<User />}></Route>
+          </Route>
 
-        <Route path='/admins' element={<Admin />}>
-          <Route index element={<DashBoard />} />
-          <Route path='manage-users' element={<ManageUser />} />
-        </Route>
+          <Route path='/admins' element={<Admin />}>
+            <Route index element={<DashBoard />} />
+            <Route path='manage-users' element={<ManageUser />} />
+          </Route>
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const METHOD_HTTP = {
     POST: "POST",
     GET: "GET",

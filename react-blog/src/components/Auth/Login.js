@@ -1,11 +1,15 @@
 import './Login.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import baseAxios, { METHOD_HTTP } from "../../Config/BaseAxios";
+import { useDispatch } from 'react-redux';
+import { doLogin } from '../Redux/action/userActionCreator';
+import { ImSpinner } from "react-icons/im";
 
 const Login = (props) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const validation = Yup.object().shape({
         username: Yup.string()
@@ -20,7 +24,8 @@ const Login = (props) => {
         try {
             const data = await baseAxios(METHOD_HTTP.POST, "/login", values);
             localStorage.setItem("token", data.token);
-            console.log('data: ', data);
+            navigate('/');
+            dispatch(doLogin(data));
         } catch (e) {
             alert(e.message);
         }
@@ -66,7 +71,10 @@ const Login = (props) => {
                             </div>
                             <span>Forgot password?</span>
                             <div >
-                                <input className='input-button btn btn-dark' type='submit' value='Login to CodeGym Blog' />
+                                <button type='submit' className='input-button btn btn-dark' disabled={false}>
+                                    <ImSpinner className="loader-icon"/>
+                                    <span>Login to CodeGym Blog</span>
+                                </button>
                             </div>
                         </Form>
                     </div>
