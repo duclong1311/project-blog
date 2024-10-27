@@ -1,0 +1,14 @@
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+    gap: 10px;
+
+    .content {
+        border: 1px solid black;
+        width: 100%;
+        height: 600px;
+    }
+}

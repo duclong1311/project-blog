@@ -20,7 +20,7 @@ const HomePage = (props) => {
                     <div className='title-1'>Get to know your customers with forms worth filling out</div>
                     <div className='title-2'>Collect all the data you need to <span className='highlight'>understand customers</span> with forms designed to be refreshingly different.</div>
                     <div className='title-3'>
-                        <button>Get started-it's free</button>
+                        <button>Create post now!</button>
                     </div>
                 </div>
             </div>
