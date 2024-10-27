@@ -1,0 +1,12 @@
+@import '../../Style/Posts.scss';
+
+.my-posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .post-container {
+        @extend .post-container;
+    }
+}
+    

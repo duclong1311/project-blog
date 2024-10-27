@@ -11,6 +11,8 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import store from './components/Redux/store'
 import { Provider } from 'react-redux';
+import MyPosts from './components/Posts/MyPosts';
+import Profile from './components/User/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +23,8 @@ root.render(
           <Route path='/' element={<App />}>
             <Route index element={<HomePage />}></Route>
             <Route path='users' element={<User />}></Route>
+            <Route path='my-posts' element={<MyPosts />}></Route>
+            <Route path='my-profile' element={<Profile />}></Route>
           </Route>
 
           <Route path='/admins' element={<Admin />}>

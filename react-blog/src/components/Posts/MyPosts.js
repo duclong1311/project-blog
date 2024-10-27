@@ -1,36 +1,31 @@
-import './User.scss';
-import ModelCreateUser from "./ModalCreatePost";
-import reactLogo from '../../assets/react-logo.png';
+import { useEffect } from "react";
+import { useState } from "react";
 import baseAxios, { METHOD_HTTP } from "../../Config/BaseAxios";
-import { CiBookmark } from "react-icons/ci";
-import { useEffect } from 'react';
-import { useState } from 'react';
+import reactLogo from '../../assets/react-logo.png';
 import { GiWorld } from "react-icons/gi";
 import { FaLock } from "react-icons/fa";
+import { CiBookmark } from "react-icons/ci";
+import './MyPost.scss';
 
-const User = (props) => {
+const MyPosts = (props) => {
     const [list, setList] = useState([]);
 
     const getData = async () => {
         try {
             const data = await baseAxios(METHOD_HTTP.GET, "/posts");
             setList(data);
-            console.log("All post: ", data);
         } catch (e) {
             alert(e.message);
         }
     }
 
-    useEffect(() => {
-        getData();
-    }, []);
+    useEffect(() => { getData(); }, []);
 
     return (
         <>
-            <div className="user-container">
-                <ModelCreateUser />
+            <div className="my-posts-container">
                 {
-                    list.filter((item) => item?.status === "public").map((item) => (
+                    list.filter((item) => item?.username === "admin").map((item) => (
                         <>
                             <div className="post-container" key={item.id}>
                                 <div className='post-image'>
@@ -55,4 +50,4 @@ const User = (props) => {
     )
 }
 
-export default User;
+export default MyPosts;
