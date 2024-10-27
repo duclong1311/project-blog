@@ -24,7 +24,7 @@ const ModelCreateUser = () => {
         <>
 
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                Create a new post
             </Button>
             <Formik
                 initialValues={{

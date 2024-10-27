@@ -6,9 +6,49 @@
     margin: auto;
     gap: 10px;
 
-    .content {
+    .post-container {
         border: 1px solid black;
         width: 100%;
-        height: 600px;
+        height: 250px;
+        display: flex;
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        .post-image {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                margin: auto;
+            }
+        }
+        .post-content {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            padding-right: 20px;
+
+            .post-type {
+                margin-top: 19.5px;
+
+                span {
+                    float: right;
+                    font-size: 24px;
+                }
+            }
+            .post-title {
+                font-weight: 600;
+                font-size: large;
+                margin-top: 19.5px;
+            }
+            .post-short-content {
+
+            }
+            .post-tutor {
+                margin-top: 80px;
+            }    
+        }
     }
 }
