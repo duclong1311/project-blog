@@ -6,14 +6,17 @@ import { GiWorld } from "react-icons/gi";
 import { FaLock } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
 import './MyPost.scss';
+import { useSelector } from 'react-redux';
 
 const MyPosts = (props) => {
     const [list, setList] = useState([]);
+    const username = useSelector(state => state.user.account?.username);
 
     const getData = async () => {
         try {
             const data = await baseAxios(METHOD_HTTP.GET, "/posts");
             setList(data);
+            console.log(username);
         } catch (e) {
             alert(e.message);
         }
@@ -25,7 +28,7 @@ const MyPosts = (props) => {
         <>
             <div className="my-posts-container">
                 {
-                    list.filter((item) => item?.username === "admin").map((item) => (
+                    list.filter((item) => item?.username === username).map((item) => (
                         <>
                             <div className="post-container" key={item.id}>
                                 <div className='post-image'>

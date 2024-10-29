@@ -11,7 +11,6 @@ const Header = () => {
         navigate('/login');
     };
     const isAuthenticated = useSelector(state => state.user.isAuthenticated);
-    const account = useSelector(state => state.user.account);
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -21,8 +20,14 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to='/' className='nav-link'>Home</NavLink>
-                        <NavLink to='users' className='nav-link'>User</NavLink>
-                        <NavLink to='admins' className='nav-link'>Admin</NavLink>
+                        {isAuthenticated === true ?
+                            <>
+                                <NavLink to='admins' className='nav-link'>Admin</NavLink>
+                                <NavLink to='users' className='nav-link'>User</NavLink>
+                            </>
+                            :
+                            <NavLink className='nav-link'></NavLink>
+                        }
                     </Nav>
                     <Nav>
                         {isAuthenticated === false ?
